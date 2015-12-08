@@ -58,9 +58,9 @@ if [ -f packages.config -o -f */packages.config ]; then
    find  -name packages.config | xargs mono $NUGET install -o packages
 fi
 
-if [ -f app.fsx ]; then
+if [ -f app.heroku.fsx ]; then
   echo "-----> Compiling app.fsx"
-  # mono /app/mono/lib/mono/4.5/fsc.exe app.fsx
+  mono /app/mono/lib/mono/4.5/fsc.exe app.heroku.fsx
 elif [ -f *.sln ]; then
    echo "-----> Compiling application"
    mono $XBUILD
